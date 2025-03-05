@@ -1,0 +1,16 @@
+// Fonts | Шрифти
+$fontFamily: 'Open Sans', sans-serif;
+$fontFamilySecond: 'Playfair Display', serif;
+
+// Font-size
+$fontSize: 1rem;
+
+// Colors | Кольори
+$mainColor: #fff;
+$secondaryColor: rgba(255, 255, 255, 0.63);
+
+$mainBackground: linear-gradient(137deg, #000 0%, #1c1c1c 100%);
+
+// Setting up an adaptive grid | Налаштування адаптивної сітки
+$maxWidthContainer: 1550px;
+$containerPadding: 0 15px;
