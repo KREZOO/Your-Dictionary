@@ -1,2 +1,17 @@
 @use 'reset';
 @use 'vars';
+@use './themes/light';
+@use './themes/dark';
+
+body {
+  font-family: vars.$fontFamily;
+  font-size: vars.$fontSize;
+  color: light.$textColor;
+  background-color: light.$bgColor;
+}
+
+.container {
+  max-width: vars.$maxWidthContainer;
+  margin: 0 auto;
+  padding: vars.$containerPadding;
+}

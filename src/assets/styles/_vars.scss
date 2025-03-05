@@ -1,16 +1,15 @@
-// Fonts | Шрифти
+// Fonts
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&display=swap');
+
 $fontFamily: 'Open Sans', sans-serif;
-$fontFamilySecond: 'Playfair Display', serif;
+$fontFamilySecond: 'Roboto Serif', sans-serif;
+
+// Colors
+$bgFooter: #20ac9d;
 
 // Font-size
-$fontSize: 1rem;
-
-// Colors | Кольори
-$mainColor: #fff;
-$secondaryColor: rgba(255, 255, 255, 0.63);
-
-$mainBackground: linear-gradient(137deg, #000 0%, #1c1c1c 100%);
+$fontSize: 0.875rem;
 
 // Setting up an adaptive grid | Налаштування адаптивної сітки
-$maxWidthContainer: 1550px;
+$maxWidthContainer: 1470px;
 $containerPadding: 0 15px;
