@@ -3,15 +3,49 @@
 @use './themes/light';
 @use './themes/dark';
 
+// Theme variables
+:root {
+  --bgColor: #{light.$bgColor};
+  --bgColor2: #{light.$bgColor2};
+  --textColor: #{light.$textColor};
+  --borderColor: #{light.$borderColor};
+  --placeholderColor: #{light.$placeholderColor};
+  --hoverOptionColor: #{light.$hoverOptionColor};
+}
+
+[data-theme='dark'] {
+  --bgColor: #{dark.$bgColor};
+  --bgColor2: #{dark.$bgColor2};
+  --textColor: #{dark.$textColor};
+  --borderColor: #{dark.$borderColor};
+  --placeholderColor: #{dark.$placeholderColor};
+  --hoverOptionColor: #{dark.$hoverOptionColor};
+}
+
+// Global styles
 body {
   font-family: vars.$fontFamily;
   font-size: vars.$fontSize;
-  color: light.$textColor;
-  background-color: light.$bgColor;
+  color: var(--textColor);
+  background-color: var(--bgColor);
 }
 
 .container {
   max-width: vars.$maxWidthContainer;
   margin: 0 auto;
   padding: vars.$containerPadding;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+
+  .main {
+    flex: 1;
+  }
+}
+
+.icon * {
+  fill: var(--textColor);
 }

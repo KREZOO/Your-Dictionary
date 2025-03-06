@@ -1,0 +1,21 @@
+@use '/src/assets/styles/vars' as v;
+
+.footer {
+  background-color: v.$bgFooter;
+  font-family: v.$fontFamilySecond;
+  font-weight: 700;
+  font-size: 1.125rem;
+
+  .wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.875rem 2.5rem;
+
+    .developers {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5625rem;
+    }
+  }
+}

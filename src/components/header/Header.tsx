@@ -1,3 +1,6 @@
+import Icon from '../Icon';
+import SwitchBtn from '../switchBtn/SwitchBtn';
+
 import './HeaderStyles.scss';
 
 const Header = () => {
@@ -12,16 +15,16 @@ const Header = () => {
         </div>
         <nav className='nav'>
           <button className='btn'>
-            <img src='/src/assets/icons/add-icon.svg' alt='add-icon' />
+            <Icon name='add' size={32} className='icon' />
             ДОДАТИ
           </button>
 
           <div className='search-wrap'>
             <input type='text' className='search' placeholder='Знайти' />
-            <img src='/src/assets/icons/search-icon.svg' alt='search-icon' />
+            <Icon name='search' size={16} className='search-icon icon' />
           </div>
 
-          <div className='themes'>p</div>
+          <SwitchBtn />
         </nav>
       </div>
     </header>
