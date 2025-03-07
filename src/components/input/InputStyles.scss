@@ -1,0 +1,32 @@
+.input-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+
+  .input-title {
+    font-weight: 700;
+    line-height: 175%;
+  }
+
+  .input {
+    border: 1px solid var(--borderColor);
+    border-radius: 0.5rem;
+    padding: 0.75rem 1.25rem;
+    background-color: var(--bgColor2);
+    box-shadow: 0 0.25rem 0.25rem 0 rgba(0, 0, 0, 0.25);
+
+    &::placeholder {
+      color: var(--placeholderColor);
+    }
+
+    &:focus {
+      outline: var(--borderColor) solid 1px;
+    }
+  }
+
+  .description {
+    resize: none;
+    height: 6.25rem;
+    padding: 0.6875rem 1.25rem;
+  }
+}

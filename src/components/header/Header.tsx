@@ -1,5 +1,6 @@
 import Icon from '../Icon';
 import SwitchBtn from '../switchBtn/SwitchBtn';
+import BtnAddDictionary from '../btnAddDictionary/BtnAddDictionary';
 
 import './HeaderStyles.scss';
 
@@ -10,14 +11,11 @@ const Header = () => {
         <div className='logo'>
           <div className='wrap'>
             <img src='/src/assets/images/logo.png' alt='Logo' />
-            <span>Your Dictionary</span>
+            <h1 className='title-logo'>Your Dictionary</h1>
           </div>
         </div>
         <nav className='nav'>
-          <button className='btn'>
-            <Icon name='add' size={32} className='icon' />
-            ДОДАТИ
-          </button>
+          <BtnAddDictionary />
 
           <div className='search-wrap'>
             <input type='text' className='search' placeholder='Знайти' />

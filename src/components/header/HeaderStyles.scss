@@ -24,7 +24,7 @@
       justify-content: left;
       gap: 1.25rem;
 
-      span {
+      .title-logo {
         text-transform: uppercase;
         font-size: 1.5rem;
         font-weight: 700;
@@ -39,16 +39,6 @@
     align-items: center;
     gap: 3.125rem;
     padding: 1.3125rem 2.5rem;
-
-    .btn {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.625rem;
-      font-family: v.$fontFamilySecond;
-      font-weight: 700;
-      font-size: 1.125rem;
-    }
 
     .search-wrap {
       position: relative;
