@@ -10,7 +10,7 @@ const App = () => {
       <Header />
 
       <main className='main'>
-        <div className='container'>
+        <div className='container-main'>
           <BtnAddTerm />
         </div>
       </main>

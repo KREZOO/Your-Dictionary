@@ -43,6 +43,12 @@ body {
 
   .main {
     flex: 1;
+
+    .container-main {
+      margin: 0 auto;
+      max-width: vars.$maxWidthMainContainer;
+      padding: vars.$mainContainerPadding;
+    }
   }
 }
 
