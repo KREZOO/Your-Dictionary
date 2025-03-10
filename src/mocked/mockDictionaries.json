@@ -8,12 +8,14 @@
       {
         "id": "t1",
         "term": "Алгоритм",
+        "createdAt": "2023-09-04",
         "definition": "Чітка послідовність дій для розв'язання задачі.",
         "definitionEng": "Algorithm is a clear sequence of actions to solve a problem."
       },
       {
         "id": "t2",
         "term": "База даних",
+        "createdAt": "2023-09-04",
         "definition": "Організована структура для зберігання інформації.",
         "definitionEng": "Database is an organized structure for storing information."
       }
@@ -28,12 +30,14 @@
       {
         "id": "t3",
         "term": "Класифікація",
+        "createdAt": "2023-09-04",
         "definition": "Процес розподілу інформації за рівнями секретності.",
         "definitionEng": "Classification is the process of distributing information by levels of secrecy."
       },
       {
         "id": "t4",
         "term": "Гриф секретності",
+        "createdAt": "2023-09-04",
         "definition": "Позначення ступеня конфіденційності документа.",
         "definitionEng": "Confidentiality grade mark."
       }

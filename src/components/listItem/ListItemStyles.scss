@@ -11,6 +11,10 @@
   font-size: 0.875rem;
   user-select: none;
 
+  .term-icon {
+    color: var(--textColor);
+  }
+
   .list-item-header {
     display: grid;
     grid-template-columns: 2fr 1px 1fr 1px 1fr;

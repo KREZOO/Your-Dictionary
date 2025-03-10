@@ -39,3 +39,15 @@ body {
 .icon * {
   fill: var(--textColor);
 }
+
+.link {
+  color: var(--textColor);
+}
+
+.not-found {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  font-size: 3rem;
+}

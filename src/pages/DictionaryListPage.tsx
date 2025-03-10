@@ -4,7 +4,7 @@ import ListItems from '../components/listItems/ListItems.tsx';
 
 import dictionaries from '../mocked/mockDictionaries.json';
 
-import './DictionaryListPageStyles.scss';
+import './PageStyles.scss';
 
 const DictionaryListPage = () => {
   return (
@@ -13,7 +13,11 @@ const DictionaryListPage = () => {
 
       <main className='main'>
         <div className='container-main'>
-          <ListItems title='Останні створені' items={dictionaries} />
+          <ListItems
+            title='Останні створені'
+            items={dictionaries}
+            type='dictionary'
+          />
         </div>
       </main>
 

@@ -5,6 +5,7 @@ import AddIcon from '../assets/icons/add-icon.svg?react';
 import LightIcon from '../assets/icons/light-icon.svg?react';
 import DarkIcon from '../assets/icons/dark-icon.svg?react';
 import DicIcon from '../assets/icons/dic-icon.svg?react';
+import TermIcon from '../assets/icons/term-icon.svg?react';
 import chevronDown from '../assets/icons/chevron-down-icon.svg?react';
 import chevronUp from '../assets/icons/chevron-up-icon.svg?react';
 
@@ -15,7 +16,8 @@ type IconName =
   | 'dark'
   | 'dictionary'
   | 'chevron-down'
-  | 'chevron-up';
+  | 'chevron-up'
+  | 'term';
 
 const icons: Record<IconName, React.FC<React.SVGProps<SVGSVGElement>>> = {
   search: SearchIcon,
@@ -23,6 +25,7 @@ const icons: Record<IconName, React.FC<React.SVGProps<SVGSVGElement>>> = {
   light: LightIcon,
   dark: DarkIcon,
   dictionary: DicIcon,
+  term: TermIcon,
   'chevron-down': chevronDown,
   'chevron-up': chevronUp,
 };

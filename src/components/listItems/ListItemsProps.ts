@@ -1,6 +1,11 @@
-import { Dictionary } from '../../types/Dictionary';
-
 export interface ListItemsProps {
-  title: string;
-  items: Dictionary[];
+  title?: string;
+  items: Array<{
+    id: string;
+    title: string;
+    description?: string;
+    descriptionEng?: string;
+    createdAt?: string;
+  }>;
+  type: 'dictionary' | 'term';
 }

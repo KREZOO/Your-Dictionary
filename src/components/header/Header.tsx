@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 import Icon from '../Icon';
 import SwitchBtn from '../switchBtn/SwitchBtn';
 import BtnAddDictionary from '../btnAddDictionary/BtnAddDictionary';
@@ -9,10 +11,12 @@ const Header = () => {
     <header className='header'>
       <div className='container'>
         <div className='logo'>
-          <div className='wrap'>
-            <img src='/src/assets/images/logo.png' alt='Logo' />
-            <h1 className='title-logo'>Your Dictionary</h1>
-          </div>
+          <Link to='/' className='link'>
+            <div className='wrap'>
+              <img src='/src/assets/images/logo.png' alt='Logo' />
+              <h1 className='title-logo'>Your Dictionary</h1>
+            </div>
+          </Link>
         </div>
         <nav className='nav'>
           <BtnAddDictionary />
