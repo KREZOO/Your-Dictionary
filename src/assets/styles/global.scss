@@ -36,22 +36,6 @@ body {
   padding: vars.$containerPadding;
 }
 
-.app {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-
-  .main {
-    flex: 1;
-
-    .container-main {
-      margin: 0 auto;
-      max-width: vars.$maxWidthMainContainer;
-      padding: vars.$mainContainerPadding;
-    }
-  }
-}
-
 .icon * {
   fill: var(--textColor);
 }

@@ -4,14 +4,27 @@ import SearchIcon from '../assets/icons/search-icon.svg?react';
 import AddIcon from '../assets/icons/add-icon.svg?react';
 import LightIcon from '../assets/icons/light-icon.svg?react';
 import DarkIcon from '../assets/icons/dark-icon.svg?react';
+import DicIcon from '../assets/icons/dic-icon.svg?react';
+import chevronDown from '../assets/icons/chevron-down-icon.svg?react';
+import chevronUp from '../assets/icons/chevron-up-icon.svg?react';
 
-type IconName = 'search' | 'add' | 'light' | 'dark';
+type IconName =
+  | 'search'
+  | 'add'
+  | 'light'
+  | 'dark'
+  | 'dictionary'
+  | 'chevron-down'
+  | 'chevron-up';
 
 const icons: Record<IconName, React.FC<React.SVGProps<SVGSVGElement>>> = {
   search: SearchIcon,
   add: AddIcon,
   light: LightIcon,
   dark: DarkIcon,
+  dictionary: DicIcon,
+  'chevron-down': chevronDown,
+  'chevron-up': chevronUp,
 };
 
 interface IconProps {
