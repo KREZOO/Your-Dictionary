@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 import Icon from '../Icon';
 import SwitchBtn from '../switchBtn/SwitchBtn';
-import BtnAddDictionary from '../btnAddDictionary/BtnAddDictionary';
+import BtnAddDictionary from '../modalButtons/BtnAddDictionary';
 
 import './HeaderStyles.scss';
 

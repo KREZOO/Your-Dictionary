@@ -1,42 +1,40 @@
 import { useState } from 'react';
-import Icon from '../Icon';
-import { ListItemProps } from './ListItemProps';
-import './ListItemStyles.scss';
-import { Link } from 'react-router-dom';
 
-const ListItem: React.FC<ListItemProps> = ({
+import Icon from '../Icon';
+
+import { TermItemProps } from './ListItemProps';
+import './ListItemStyles.scss';
+
+const TermItem: React.FC<TermItemProps> = ({
   title,
+  titleEng,
   description,
   descriptionEng,
-  date,
-  type,
-  id,
+  dateTerm,
 }) => {
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
     <div className='list-item'>
-      <div className='list-item-header'>
+      <div className='list-item-header-term'>
         <div className='title-wrap'>
-          <Icon
-            name={type === 'dictionary' ? 'dictionary' : 'term'}
-            size={36}
-            className='icon'
-          />
-
-          {type === 'dictionary' ? (
-            <Link className='link' to={`/dictionary/${id}`}>
-              <h3>{title}</h3>
-            </Link>
-          ) : (
+          <Icon name='term' size={36} className='icon' />
+          <div className='term-titles'>
             <h3>{title}</h3>
-          )}
+          </div>
         </div>
 
-        {date && (
+        {titleEng && (
           <>
             <div className='divider'></div>
-            <p className='date'>{date}</p>
+            <p className='flex-center'>{titleEng}</p>
+          </>
+        )}
+
+        {dateTerm && (
+          <>
+            <div className='divider'></div>
+            <p className='flex-center'>Створено: {dateTerm}</p>
           </>
         )}
 
@@ -60,12 +58,12 @@ const ListItem: React.FC<ListItemProps> = ({
 
       {isExpanded && description && (
         <div className='desc'>
-          <div className='desc-item'>{description}</div>
-          <div className='desc-item'>{descriptionEng}</div>
+          <div>{description}</div>
+          <div>{descriptionEng}</div>
         </div>
       )}
     </div>
   );
 };
 
-export default ListItem;
+export default TermItem;

@@ -11,42 +11,45 @@
   font-size: 0.875rem;
   user-select: none;
 
-  .term-icon {
-    color: var(--textColor);
-  }
-
-  .list-item-header {
+  .list-item-header-dictionary {
     display: grid;
     grid-template-columns: 2fr 1px 1fr 1px 1fr;
     align-items: center;
     gap: 3.125rem;
+  }
 
-    .date {
-      display: flex;
-      justify-content: center;
-    }
+  .list-item-header-term {
+    display: grid;
+    grid-template-columns: 1fr 1px 1fr 1px 1fr 1px 1fr;
+    align-items: center;
+    gap: 3.125rem;
+  }
 
-    .divider {
-      background-color: var(--textColor);
-      width: 1px;
-      height: 1.5rem;
-    }
+  .flex-center {
+    display: flex;
+    justify-content: center;
+  }
 
-    .title-wrap {
-      display: flex;
-      gap: 1.25rem;
-      align-items: center;
-    }
+  .divider {
+    background-color: var(--textColor);
+    width: 1px;
+    height: 1.5rem;
+  }
 
-    .desc-toggle {
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      gap: 1.25rem;
+  .title-wrap {
+    display: flex;
+    gap: 1.25rem;
+    align-items: center;
+  }
 
-      p {
-        min-width: 8.125rem;
-      }
+  .desc-toggle {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+
+    p {
+      min-width: 8.125rem;
     }
   }
 

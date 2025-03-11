@@ -1,8 +1,15 @@
-export interface ListItemProps {
+export interface DictionaryItemProps {
   id: string;
   title: string;
   description?: string;
+  dateDictionary?: string;
+}
+
+export interface TermItemProps {
+  id: string;
+  title: string;
+  titleEng?: string;
+  description?: string;
   descriptionEng?: string;
-  date?: string;
-  type: 'dictionary' | 'term';
+  dateTerm?: string;
 }

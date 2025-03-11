@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 
 import Icon from '../Icon';
-import TermModal from '../termModal/TermModal';
+import TermModal from '../modals/TermModal';
 
 const BtnAddTerm = () => {
   const [active, setActive] = useState<boolean>(() => {

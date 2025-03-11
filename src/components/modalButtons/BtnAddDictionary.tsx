@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
 
 import Icon from '../Icon';
-import DictionaryModal from '../dictionaryModal/DictionaryModal';
+import DictionaryModal from '../modals/DictionaryModal';
 
-import './BtnAddDictionaryStyles.scss';
+import './ModalButtonsStyles.scss';
 
 const BtnAddDictionary = () => {
   const [active, setActive] = useState<boolean>(() => {

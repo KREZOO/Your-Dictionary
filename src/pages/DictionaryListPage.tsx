@@ -15,7 +15,12 @@ const DictionaryListPage = () => {
         <div className='container-main'>
           <ListItems
             title='Останні створені'
-            items={dictionaries}
+            items={dictionaries.map((dictionary) => ({
+              id: dictionary.id,
+              title: dictionary.title,
+              description: dictionary.description,
+              createdAt: dictionary.createdAt,
+            }))}
             type='dictionary'
           />
         </div>

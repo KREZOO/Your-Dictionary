@@ -2,8 +2,8 @@ import ReactDOM from 'react-dom';
 
 import Input from '../input/Input';
 
-import { ModalProps } from '../../types/ModalProps';
-import '../../assets/styles/components/ModalStyles.scss';
+import { ModalProps } from './ModalProps';
+import './ModalStyles.scss';
 
 const TermModal: React.FC<ModalProps> = ({ active, closeModal }) => {
   if (!active) return null;

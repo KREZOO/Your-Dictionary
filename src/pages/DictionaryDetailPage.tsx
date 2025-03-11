@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import Header from '../components/header/Header.tsx';
 import Footer from '../components/footer/Footer.tsx';
 import ListItems from '../components/listItems/ListItems.tsx';
-import BtnAddTerm from '../components/btnAddTerm/BtnAddTerm.tsx';
+import BtnAddTerm from '../components/modalButtons/BtnAddTerm.tsx';
 
 import dictionaries from '../mocked/mockDictionaries.json';
 
@@ -41,8 +41,10 @@ const DictionaryDetailPage = () => {
             items={dictionary.terms.map((term) => ({
               id: term.id,
               title: term.term,
+              titleEng: term.termEng,
               description: term.definition,
               descriptionEng: term.definitionEng,
+              createdAt: term.createdAt || '',
             }))}
             type='term'
           />
