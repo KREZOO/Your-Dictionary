@@ -1,7 +1,10 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import { Link } from 'react-router-dom';
-import Icon from '../Icon';
+import Icon from '../ui/icon/Icon';
+import OptionsMenu from '../optionsMenu/OptionsMenu';
+import DictionaryModalEdit from '../modals/DictionaryModalEdit';
+import Tooltip from '../ui/tooltip/Tooltip';
 
 import { DictionaryItemProps } from './ListItemProps';
 import './ListItemStyles.scss';
@@ -12,16 +15,40 @@ const DictionaryItem: React.FC<DictionaryItemProps> = ({
   description,
   dateDictionary,
 }) => {
+  const storageKey = `dictionaryModalEditState_${id}`;
+
   const [isExpanded, setIsExpanded] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  useEffect(() => {
+    const savedState = localStorage.getItem(storageKey);
+    if (savedState === 'true') {
+      setIsModalOpen(true);
+    }
+  }, [storageKey]);
+
+  useEffect(() => {
+    localStorage.setItem(storageKey, String(isModalOpen));
+  }, [isModalOpen, storageKey]);
+
+  const openEditModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeEditModal = () => {
+    setIsModalOpen(false);
+  };
 
   return (
     <div className='list-item'>
       <div className='list-item-header-dictionary'>
         <div className='title-wrap'>
           <Icon name='dictionary' size={36} className='icon' />
-          <Link className='link' to={`/dictionary/${id}`}>
-            <h3>{title}</h3>
-          </Link>
+          <Tooltip text={title}>
+            <Link className='link' to={`/dictionary/${id}`}>
+              <h3 className='dictionary-title'>{title}</h3>
+            </Link>
+          </Tooltip>
         </div>
 
         {dateDictionary && (
@@ -47,6 +74,8 @@ const DictionaryItem: React.FC<DictionaryItemProps> = ({
             </div>
           </>
         )}
+
+        <OptionsMenu urlCall={`/dictionary/${id}`} onEdit={openEditModal} />
       </div>
 
       {isExpanded && description && (
@@ -54,6 +83,8 @@ const DictionaryItem: React.FC<DictionaryItemProps> = ({
           <div className='desc-item'>{description}</div>
         </div>
       )}
+
+      <DictionaryModalEdit active={isModalOpen} closeModal={closeEditModal} />
     </div>
   );
 };

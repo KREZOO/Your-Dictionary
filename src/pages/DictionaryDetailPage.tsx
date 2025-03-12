@@ -4,6 +4,7 @@ import Header from '../components/header/Header.tsx';
 import Footer from '../components/footer/Footer.tsx';
 import ListItems from '../components/listItems/ListItems.tsx';
 import BtnAddTerm from '../components/modalButtons/BtnAddTerm.tsx';
+import BtnBack from '../components/ui/btnBack/BtnBack.tsx';
 
 import dictionaries from '../mocked/mockDictionaries.json';
 
@@ -32,7 +33,7 @@ const DictionaryDetailPage = () => {
 
   return (
     <div className='page'>
-      <Header />
+      <Header actions={<BtnBack link='/' text='повернутись' />} />
 
       <main className='main'>
         <div className='container-main'>

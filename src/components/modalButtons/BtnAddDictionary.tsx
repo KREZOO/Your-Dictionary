@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-import Icon from '../Icon';
+import Icon from '../ui/icon/Icon';
 import DictionaryModal from '../modals/DictionaryModal';
 
 import './ModalButtonsStyles.scss';

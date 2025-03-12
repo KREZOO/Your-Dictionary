@@ -1,0 +1,17 @@
+@use '../../../assets/styles/vars';
+
+.btn-back {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.625rem;
+
+  font-family: vars.$fontFamilySecond;
+  font-weight: 700;
+  font-size: 1.125rem;
+  text-transform: uppercase;
+
+  .btn-back-icon {
+    fill: none;
+  }
+}

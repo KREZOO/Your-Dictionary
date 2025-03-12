@@ -20,6 +20,7 @@
     background-color: var(--bgColor2);
     border-radius: 0.5rem;
     padding: 2.5rem;
+    border: 1px solid var(--borderColor);
 
     .modal-content {
       display: flex;
@@ -53,6 +54,15 @@
         border-radius: 0.5rem;
         padding: 0.9375rem 0rem 0.875rem 0rem;
         background-color: v.$turquoise;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+          background-color: v.$hoverButtonColor;
+        }
+
+        &:active {
+          background-color: v.$activeColor;
+        }
       }
     }
   }

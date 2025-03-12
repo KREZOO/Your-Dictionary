@@ -57,6 +57,10 @@
         &::placeholder {
           color: var(--placeholderColor);
         }
+
+        &:focus {
+          border: 1px solid v.$activeColor;
+        }
       }
 
       .search-icon {

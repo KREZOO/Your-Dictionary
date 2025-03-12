@@ -1,3 +1,5 @@
+@use '../../../assets/styles/vars' as v;
+
 .input-field {
   display: flex;
   flex-direction: column;
@@ -20,7 +22,8 @@
     }
 
     &:focus {
-      outline: var(--borderColor) solid 1px;
+      outline: none;
+      border: v.$activeColor solid 1px;
     }
   }
 

@@ -1,12 +1,12 @@
 import { Link } from 'react-router-dom';
 
-import Icon from '../Icon';
+import Icon from '../ui/icon/Icon';
 import SwitchBtn from '../switchBtn/SwitchBtn';
-import BtnAddDictionary from '../modalButtons/BtnAddDictionary';
 
 import './HeaderStyles.scss';
+import { HeaderProps } from './HeaderProps';
 
-const Header = () => {
+const Header: React.FC<HeaderProps> = ({ actions }) => {
   return (
     <header className='header'>
       <div className='container'>
@@ -19,7 +19,7 @@ const Header = () => {
           </Link>
         </div>
         <nav className='nav'>
-          <BtnAddDictionary />
+          {actions}
 
           <div className='search-wrap'>
             <input type='text' className='search' placeholder='Знайти' />

@@ -5,14 +5,14 @@ import Input from '../ui/input/Input';
 import { ModalProps } from './ModalProps';
 import './ModalStyles.scss';
 
-const TermModal: React.FC<ModalProps> = ({ active, closeModal }) => {
+const TermModalEdit: React.FC<ModalProps> = ({ active, closeModal }) => {
   if (!active) return null;
 
   return ReactDOM.createPortal(
     <div className='modal-overlay' onClick={closeModal}>
       <div className='modal' onClick={(e) => e.stopPropagation()}>
         <div className='modal-content'>
-          <h2 className='modal-title'>Створення терміну</h2>
+          <h2 className='modal-title'>Редагування терміну</h2>
 
           <div className='modal-wrapper'>
             <div className='name-term-wrap'>
@@ -45,7 +45,7 @@ const TermModal: React.FC<ModalProps> = ({ active, closeModal }) => {
           </div>
 
           <button className='btn-create' onClick={closeModal}>
-            Створити
+            Зберегти
           </button>
         </div>
       </div>
@@ -54,4 +54,4 @@ const TermModal: React.FC<ModalProps> = ({ active, closeModal }) => {
   );
 };
 
-export default TermModal;
+export default TermModalEdit;

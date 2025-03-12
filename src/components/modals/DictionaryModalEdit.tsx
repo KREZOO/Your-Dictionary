@@ -5,14 +5,14 @@ import Input from '../ui/input/Input';
 import { ModalProps } from './ModalProps';
 import './ModalStyles.scss';
 
-const DictionaryModal: React.FC<ModalProps> = ({ active, closeModal }) => {
+const DictionaryModalEdit: React.FC<ModalProps> = ({ active, closeModal }) => {
   if (!active) return null;
 
   return ReactDOM.createPortal(
     <div className='modal-overlay' onClick={closeModal}>
       <div className='modal' onClick={(e) => e.stopPropagation()}>
         <div className='modal-content'>
-          <h2 className='modal-title'>Створення словника</h2>
+          <h2 className='modal-title'>Редагування словника</h2>
 
           <div className='modal-wrapper'>
             <Input
@@ -30,7 +30,7 @@ const DictionaryModal: React.FC<ModalProps> = ({ active, closeModal }) => {
           </div>
 
           <button className='btn-create' onClick={closeModal}>
-            Створити
+            Зберегти
           </button>
         </div>
       </div>
@@ -39,4 +39,4 @@ const DictionaryModal: React.FC<ModalProps> = ({ active, closeModal }) => {
   );
 };
 
-export default DictionaryModal;
+export default DictionaryModalEdit;

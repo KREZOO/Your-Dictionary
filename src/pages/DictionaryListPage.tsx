@@ -1,6 +1,7 @@
 import Header from '../components/header/Header.tsx';
 import Footer from '../components/footer/Footer.tsx';
 import ListItems from '../components/listItems/ListItems.tsx';
+import BtnAddDictionary from '../components/modalButtons/BtnAddDictionary.tsx';
 
 import dictionaries from '../mocked/mockDictionaries.json';
 
@@ -9,7 +10,7 @@ import './PageStyles.scss';
 const DictionaryListPage = () => {
   return (
     <div className='page'>
-      <Header />
+      <Header actions={<BtnAddDictionary />} />
 
       <main className='main'>
         <div className='container-main'>

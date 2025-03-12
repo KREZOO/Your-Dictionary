@@ -1,0 +1,58 @@
+@use '../../assets/styles/vars' as v;
+
+.context-menu {
+  position: relative;
+  display: inline-block;
+
+  .menu-button {
+    display: flex;
+    align-items: center;
+    height: fit-content;
+    width: fit-content;
+    background: none;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+
+  .dropdown-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3125rem;
+    position: absolute;
+    right: 0;
+    margin-top: 0.25rem;
+    width: fit-content;
+    background: var(--bgColor2);
+    border: 1px solid var(--borderColor);
+    border-radius: 0.5rem;
+    padding: 0.75rem 0;
+    list-style: none;
+    z-index: 10;
+
+    .menu-item {
+      display: flex;
+      width: 100%;
+      gap: 0.625rem;
+      cursor: pointer;
+      font-weight: 400;
+      padding: 0.3125rem 1.25rem;
+
+      &:hover {
+        background-color: var(--hoverOptionColor);
+      }
+
+      &:active {
+        background-color: v.$activeColor;
+      }
+
+      .edit-icon {
+        fill: none;
+      }
+
+      .dropdown-menu-icon {
+        min-width: 1rem;
+      }
+    }
+  }
+}

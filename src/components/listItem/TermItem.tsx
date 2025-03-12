@@ -1,11 +1,15 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
-import Icon from '../Icon';
+import Icon from '../ui/icon/Icon';
+import OptionsMenu from '../optionsMenu/OptionsMenu';
+import TermModalEdit from '../modals/TermModalEdit';
+import Tooltip from '../ui/tooltip/Tooltip';
 
 import { TermItemProps } from './ListItemProps';
 import './ListItemStyles.scss';
 
 const TermItem: React.FC<TermItemProps> = ({
+  id,
   title,
   titleEng,
   description,
@@ -13,21 +17,44 @@ const TermItem: React.FC<TermItemProps> = ({
   dateTerm,
 }) => {
   const [isExpanded, setIsExpanded] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const storageKey = `termModalEditState_${id}`;
+
+  const openEditModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeEditModal = () => {
+    setIsModalOpen(false);
+  };
+
+  useEffect(() => {
+    const savedState = localStorage.getItem(storageKey);
+    if (savedState === 'true') {
+      setIsModalOpen(true);
+    }
+  }, [storageKey]);
+
+  useEffect(() => {
+    localStorage.setItem(storageKey, String(isModalOpen));
+  }, [isModalOpen, storageKey]);
 
   return (
     <div className='list-item'>
       <div className='list-item-header-term'>
         <div className='title-wrap'>
-          <Icon name='term' size={36} className='icon' />
-          <div className='term-titles'>
-            <h3>{title}</h3>
-          </div>
+          <Icon name='term' size={30} className='header-term-icon icon' />
+          <Tooltip text={title}>
+            <h3 className='term-title'>{title}</h3>
+          </Tooltip>
         </div>
 
         {titleEng && (
           <>
             <div className='divider'></div>
-            <p className='flex-center'>{titleEng}</p>
+            <Tooltip text={titleEng}>
+              <h3 className='term-title-eng flex-center'>{titleEng}</h3>
+            </Tooltip>
           </>
         )}
 
@@ -54,6 +81,8 @@ const TermItem: React.FC<TermItemProps> = ({
             </div>
           </>
         )}
+
+        <OptionsMenu urlCall={`/term/${id}`} onEdit={openEditModal} />
       </div>
 
       {isExpanded && description && (
@@ -62,6 +91,8 @@ const TermItem: React.FC<TermItemProps> = ({
           <div>{descriptionEng}</div>
         </div>
       )}
+
+      <TermModalEdit active={isModalOpen} closeModal={closeEditModal} />
     </div>
   );
 };

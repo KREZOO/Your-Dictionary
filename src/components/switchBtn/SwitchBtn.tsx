@@ -1,24 +1,19 @@
-import { useState, useEffect } from 'react';
+import { useTheme } from '../../contexts/ThemeContext';
 
-import Icon from '../Icon';
+import Icon from '../ui/icon/Icon';
 
 import './SwitchBtnStyles.scss';
 
 const SwitchBtn = () => {
-  const [theme, setTheme] = useState(localStorage.getItem('theme') || 'light');
-
-  useEffect(() => {
-    document.documentElement.setAttribute('data-theme', theme);
-    localStorage.setItem('theme', theme);
-  }, [theme]);
-
-  const toggleTheme = () => {
-    setTheme((prev) => (prev === 'light' ? 'dark' : 'light'));
-  };
+  const { theme, toggleTheme } = useTheme();
 
   return (
     <label className='switch'>
-      <input type='checkbox' onClick={toggleTheme} />
+      <input
+        type='checkbox'
+        onChange={toggleTheme}
+        checked={theme === 'dark'}
+      />
       <span className='slider'></span>
       <Icon name='light' size={16} className='light' />
       <Icon name='dark' size={16} className='dark' />

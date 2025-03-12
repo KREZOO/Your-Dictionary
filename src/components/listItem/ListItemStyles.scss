@@ -9,37 +9,60 @@
   background-color: var(--bgColor2);
   font-weight: 600;
   font-size: 0.875rem;
-  user-select: none;
 
   .list-item-header-dictionary {
     display: grid;
-    grid-template-columns: 2fr 1px 1fr 1px 1fr;
+    grid-template-columns: 26.875rem 1px 1fr 1px 1fr auto;
     align-items: center;
     gap: 3.125rem;
+
+    .dictionary-title {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 23.75rem;
+      display: block;
+    }
   }
 
   .list-item-header-term {
     display: grid;
-    grid-template-columns: 1fr 1px 1fr 1px 1fr 1px 1fr;
+    grid-template-columns: 14.375rem 1px 6.875rem 1px 1fr 1px 1fr auto;
     align-items: center;
     gap: 3.125rem;
-  }
 
-  .flex-center {
-    display: flex;
-    justify-content: center;
+    .term-title {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 10rem;
+      display: block;
+    }
+
+    .term-title-eng {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 6.875rem;
+      display: block;
+    }
   }
 
   .divider {
     background-color: var(--textColor);
     width: 1px;
-    height: 1.5rem;
+    height: 100%;
   }
 
   .title-wrap {
     display: flex;
     gap: 1.25rem;
     align-items: center;
+    max-width: 100%;
+
+    .header-term-icon {
+      min-width: 1.875rem;
+    }
   }
 
   .desc-toggle {
@@ -47,6 +70,7 @@
     display: flex;
     align-items: center;
     gap: 1.25rem;
+    user-select: none;
 
     p {
       min-width: 8.125rem;
