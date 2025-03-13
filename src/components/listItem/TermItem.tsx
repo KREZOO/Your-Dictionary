@@ -82,7 +82,7 @@ const TermItem: React.FC<TermItemProps> = ({
           </>
         )}
 
-        <OptionsMenu urlCall={`/term/${id}`} onEdit={openEditModal} />
+        <OptionsMenu urlCall={`/term/${id}`} onEdit={openEditModal} id={id} />
       </div>
 
       {isExpanded && description && (
@@ -92,7 +92,7 @@ const TermItem: React.FC<TermItemProps> = ({
         </div>
       )}
 
-      <TermModalEdit active={isModalOpen} closeModal={closeEditModal} />
+      <TermModalEdit active={isModalOpen} closeModal={closeEditModal} id={id} />
     </div>
   );
 };

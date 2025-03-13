@@ -5,7 +5,7 @@ import Input from '../ui/input/Input';
 import { ModalProps } from './ModalProps';
 import './ModalStyles.scss';
 
-const TermModalEdit: React.FC<ModalProps> = ({ active, closeModal }) => {
+const TermModalEdit: React.FC<ModalProps> = ({ active, closeModal, id }) => {
   if (!active) return null;
 
   return ReactDOM.createPortal(

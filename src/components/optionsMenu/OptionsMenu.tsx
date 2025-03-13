@@ -1,12 +1,14 @@
 import { useState, useRef, useEffect } from 'react';
 import { useTheme } from '../../contexts/ThemeContext';
+import { deleteTerm } from '../../services/TermService';
+import { deleteDictionary } from '../../services/dictionaryService';
 
 import Icon from '../ui/icon/Icon';
 
 import { OptionsMenuProps } from './OptionsMenuProps';
 import './OptionsMenuStyles.scss';
 
-const OptionsMenu: React.FC<OptionsMenuProps> = ({ urlCall, onEdit }) => {
+const OptionsMenu: React.FC<OptionsMenuProps> = ({ urlCall, onEdit, id }) => {
   const [isOpen, setIsOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
   const { theme } = useTheme();
@@ -15,7 +17,25 @@ const OptionsMenu: React.FC<OptionsMenuProps> = ({ urlCall, onEdit }) => {
 
   const handleEditClick = () => {
     setIsOpen(false);
-    onEdit(urlCall);
+    onEdit(id || '');
+  };
+
+  const handleDeleteClick = async () => {
+    if (!id) {
+      console.error('ID не передано');
+      return;
+    }
+
+    try {
+      if (urlCall.startsWith('/dictionary/')) {
+        await deleteDictionary(id);
+      } else if (urlCall.startsWith('/term/')) {
+        await deleteTerm(id);
+      }
+      setIsOpen(false);
+    } catch (error) {
+      console.error('Помилка при видаленні:', error);
+    }
   };
 
   useEffect(() => {
@@ -51,7 +71,7 @@ const OptionsMenu: React.FC<OptionsMenuProps> = ({ urlCall, onEdit }) => {
             Скопіювати
           </li>
 
-          <li className='menu-item'>
+          <li className='menu-item' onClick={handleDeleteClick}>
             <Icon name='trash' size={16} className='dropdown-menu-icon icon' />
             Видалити
           </li>

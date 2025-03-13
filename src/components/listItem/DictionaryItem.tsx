@@ -75,7 +75,11 @@ const DictionaryItem: React.FC<DictionaryItemProps> = ({
           </>
         )}
 
-        <OptionsMenu urlCall={`/dictionary/${id}`} onEdit={openEditModal} />
+        <OptionsMenu
+          urlCall={`/dictionary/${id}`}
+          onEdit={openEditModal}
+          id={id}
+        />
       </div>
 
       {isExpanded && description && (
@@ -84,7 +88,11 @@ const DictionaryItem: React.FC<DictionaryItemProps> = ({
         </div>
       )}
 
-      <DictionaryModalEdit active={isModalOpen} closeModal={closeEditModal} />
+      <DictionaryModalEdit
+        active={isModalOpen}
+        closeModal={closeEditModal}
+        id={id}
+      />
     </div>
   );
 };
