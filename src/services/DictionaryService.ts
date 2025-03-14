@@ -81,3 +81,15 @@ export const updateDictionary = async (
 
   return data;
 };
+
+export const searchDictionaries = async (query: string) => {
+  const { data, error } = await supabase
+    .from('dictionaries')
+    .select('*')
+    .ilike('title', `%${query}%`);
+
+  if (error) {
+    console.error('Ошибка при поиске словарей:', error);
+  }
+  return data || [];
+};

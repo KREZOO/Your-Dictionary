@@ -20,6 +20,12 @@ const TermItem: React.FC<TermItemProps> = ({
   const [isModalOpen, setIsModalOpen] = useState(false);
   const storageKey = `termModalEditState_${id}`;
 
+  if (isModalOpen) {
+    document.body.classList.add('modal-open');
+  } else {
+    document.body.classList.remove('modal-open');
+  }
+
   const openEditModal = () => {
     setIsModalOpen(true);
   };

@@ -20,6 +20,12 @@ const DictionaryItem: React.FC<DictionaryItemProps> = ({
   const [isExpanded, setIsExpanded] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
+  if (isModalOpen) {
+    document.body.classList.add('modal-open');
+  } else {
+    document.body.classList.remove('modal-open');
+  }
+
   useEffect(() => {
     const savedState = localStorage.getItem(storageKey);
     if (savedState === 'true') {

@@ -1,21 +1,22 @@
 @use '/src/assets/styles/vars' as v;
 
 .modal-overlay {
-  z-index: 1;
-  position: absolute;
+  z-index: 1000;
+  position: fixed;
   top: 0;
   left: 0;
-  right: 0;
-  bottom: 0;
+  width: 100vw;
+  height: 100vh;
   background: rgba(0, 0, 0, 0.25);
 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   .modal {
-    z-index: 2;
+    z-index: 1001;
     min-width: 50rem;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    max-width: 90vw;
     max-width: 50rem;
     background-color: var(--bgColor2);
     border-radius: 0.5rem;
@@ -50,7 +51,7 @@
       .btn-create {
         color: #fff;
         width: 23.125rem;
-        margin: 3.125rem auto 0 auto;
+        margin: 1.5625rem auto 0 auto;
         border-radius: 0.5rem;
         padding: 0.9375rem 0rem 0.875rem 0rem;
         background-color: v.$turquoise;

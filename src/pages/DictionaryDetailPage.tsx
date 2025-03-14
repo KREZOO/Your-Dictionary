@@ -8,18 +8,32 @@ import BtnAddTerm from '../components/modalButtons/BtnAddTerm.tsx';
 import BtnBack from '../components/ui/btnBack/BtnBack.tsx';
 
 import { getTerms } from '../services/TermService';
+import { getDictionaryById } from '../services/DictionaryService';
 
 import './PageStyles.scss';
 
 const DictionaryDetailPage = () => {
   const { id } = useParams();
   const [terms, setTerms] = useState<any[]>([]);
+  const [dictionaryName, setDictionaryName] = useState<string>('');
 
   useEffect(() => {
     const fetchTerms = async () => {
       if (id) {
         const termsData = await getTerms(id);
-        setTerms(termsData);
+
+        const sortedTerms = termsData.sort((a, b) => {
+          if (a.term.toLowerCase() < b.term.toLowerCase()) return -1;
+          if (a.term.toLowerCase() > b.term.toLowerCase()) return 1;
+          return 0;
+        });
+
+        setTerms(sortedTerms);
+
+        const dictionaryData = await getDictionaryById(id);
+        if (dictionaryData) {
+          setDictionaryName(dictionaryData.title);
+        }
       }
     };
 
@@ -51,7 +65,7 @@ const DictionaryDetailPage = () => {
       <main className='main'>
         <div className='container-main'>
           <ListItems
-            title='Терміни'
+            title={`Терміни в словнику "${dictionaryName}"`}
             items={terms.map((term) => ({
               id: term.id,
               title: term.term,

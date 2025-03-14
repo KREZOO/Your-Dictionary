@@ -14,7 +14,14 @@ const DictionaryListPage = () => {
   useEffect(() => {
     const fetchDictionaries = async () => {
       const data = await getDictionaries();
-      setDictionaries(data);
+
+      const sortedDictionaries = data.sort((a, b) => {
+        if (a.title.toLowerCase() < b.title.toLowerCase()) return -1;
+        if (a.title.toLowerCase() > b.title.toLowerCase()) return 1;
+        return 0;
+      });
+
+      setDictionaries(sortedDictionaries);
     };
     fetchDictionaries();
   }, []);

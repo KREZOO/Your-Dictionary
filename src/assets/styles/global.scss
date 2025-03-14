@@ -34,6 +34,10 @@ body {
   background-color: var(--bgColor);
 }
 
+.modal-open {
+  overflow: hidden;
+}
+
 .container {
   max-width: vars.$maxWidthContainer;
   margin: 0 auto;

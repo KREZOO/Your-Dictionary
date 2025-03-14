@@ -76,3 +76,17 @@ export const getTermById = async (termId: string) => {
   }
   return data;
 };
+
+export async function searchTerms(query: string) {
+  const { data, error } = await supabase
+    .from('terms')
+    .select('*')
+    .ilike('term', `%${query}%`)
+    .or(`term_eng.ilike.%${query}%,term.ilike.%${query}%`);
+
+  if (error) {
+    console.error('Ошибка при поиске терминов:', error);
+  }
+
+  return data || [];
+}
