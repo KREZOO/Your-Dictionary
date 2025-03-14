@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 
 import Icon from '../ui/icon/Icon';
+import Logo from '../../assets/images/logo.png';
 import SwitchBtn from '../switchBtn/SwitchBtn';
 
 import './HeaderStyles.scss';
@@ -13,7 +14,7 @@ const Header: React.FC<HeaderProps> = ({ actions }) => {
         <div className='logo'>
           <Link to='/' className='link'>
             <div className='wrap'>
-              <img src='/src/assets/images/logo.png' alt='Logo' />
+              <img src={Logo} alt='Logo' />
               <h1 className='title-logo'>Your Dictionary</h1>
             </div>
           </Link>
