@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
 
 import Icon from '../ui/icon/Icon';
 import OptionsMenu from '../optionsMenu/OptionsMenu';
@@ -101,12 +102,20 @@ const TermItem: React.FC<TermItemProps> = ({
         />
       </div>
 
-      {isExpanded && description && (
-        <div className='desc'>
-          <div>{description}</div>
-          <div>{descriptionEng}</div>
-        </div>
-      )}
+      <AnimatePresence>
+        {isExpanded && description && (
+          <motion.div
+            className='desc'
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: 'auto', opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.2, ease: 'linear' }}
+          >
+            <div>{description}</div>
+            <div>{descriptionEng}</div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       <TermModalEdit active={isModalOpen} closeModal={closeEditModal} id={id} />
     </div>

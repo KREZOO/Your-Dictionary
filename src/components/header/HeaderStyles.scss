@@ -54,6 +54,14 @@
         background-color: var(--bgColor);
         font-family: v.$fontFamilySecond;
 
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        autocomplete: off;
+        autocorrect: off;
+        autocapitalize: off;
+        spellcheck: false;
+
         &::placeholder {
           color: var(--placeholderColor);
         }

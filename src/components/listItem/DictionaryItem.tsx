@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
-
+import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
+
 import Icon from '../ui/icon/Icon';
 import OptionsMenu from '../optionsMenu/OptionsMenu';
 import DictionaryModalEdit from '../modals/DictionaryModalEdit';
@@ -89,11 +90,19 @@ const DictionaryItem: React.FC<DictionaryItemProps> = ({
         />
       </div>
 
-      {isExpanded && description && (
-        <div className='desc'>
-          <div className='desc-item'>{description}</div>
-        </div>
-      )}
+      <AnimatePresence>
+        {isExpanded && description && (
+          <motion.div
+            className='desc'
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: 'auto', opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.2, ease: 'linear' }}
+          >
+            <div className='desc-item'>{description}</div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       <DictionaryModalEdit
         active={isModalOpen}
