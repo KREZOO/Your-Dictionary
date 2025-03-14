@@ -82,7 +82,17 @@ const TermItem: React.FC<TermItemProps> = ({
           </>
         )}
 
-        <OptionsMenu urlCall={`/term/${id}`} onEdit={openEditModal} id={id} />
+        <OptionsMenu
+          urlCall={`/term/${id}`}
+          onEdit={openEditModal}
+          id={id}
+          termData={{
+            term: title,
+            definition: description,
+            term_eng: titleEng,
+            definition_eng: descriptionEng,
+          }}
+        />
       </div>
 
       {isExpanded && description && (

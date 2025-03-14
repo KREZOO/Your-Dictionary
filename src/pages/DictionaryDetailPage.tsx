@@ -29,7 +29,7 @@ const DictionaryDetailPage = () => {
   if (!id || !terms.length) {
     return (
       <div className='page'>
-        <Header />
+        <Header actions={<BtnBack link='/' text='повернутись' />} />
         <main className='main'>
           <div className='container-main'>
             <div className='not-found'>

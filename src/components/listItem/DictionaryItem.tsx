@@ -79,6 +79,7 @@ const DictionaryItem: React.FC<DictionaryItemProps> = ({
           urlCall={`/dictionary/${id}`}
           onEdit={openEditModal}
           id={id}
+          dictionaryData={{ title, description }}
         />
       </div>
 

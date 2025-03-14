@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 
 import Input from '../ui/input/Input';
 
-import { createDictionary } from '../../services/dictionaryService';
+import { createDictionary } from '../../services/DictionaryService';
 import { ModalProps } from './ModalProps';
 import './ModalStyles.scss';
 

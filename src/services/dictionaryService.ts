@@ -1,4 +1,4 @@
-import { supabase } from './supabaseClient';
+import { supabase } from './SupabaseClient';
 
 export async function getDictionaries() {
   const { data, error } = await supabase.from('dictionaries').select('*');
@@ -27,12 +27,57 @@ export async function createDictionary({
 }
 
 export const deleteDictionary = async (dictionaryId: string) => {
-  const { error } = await supabase
+  const { error: deleteTermsError } = await supabase
+    .from('terms')
+    .delete()
+    .eq('dictionary_id', dictionaryId);
+
+  if (deleteTermsError) {
+    throw new Error('Помилка при видаленні термінів');
+  }
+
+  const { error: deleteDictionaryError } = await supabase
     .from('dictionaries')
     .delete()
     .eq('id', dictionaryId);
-  if (error) {
+
+  if (deleteDictionaryError) {
     throw new Error('Помилка при видаленні словника');
   }
+
   return true;
+};
+
+export async function getDictionaryById(id: string) {
+  const { data, error } = await supabase
+    .from('dictionaries')
+    .select('*')
+    .eq('id', id)
+    .single();
+
+  if (error) {
+    console.error('Помилка при отриманні словника:', error);
+    return null;
+  }
+
+  return data;
+}
+
+export const updateDictionary = async (
+  dictionaryId: string,
+  updatedData: {
+    title?: string;
+    description?: string;
+  }
+) => {
+  const { data, error } = await supabase
+    .from('dictionaries')
+    .update(updatedData)
+    .eq('id', dictionaryId);
+
+  if (error) {
+    throw new Error('Помилка при оновленні словника');
+  }
+
+  return data;
 };

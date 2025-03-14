@@ -1,14 +1,20 @@
 import { useState, useRef, useEffect } from 'react';
 import { useTheme } from '../../contexts/ThemeContext';
 import { deleteTerm } from '../../services/TermService';
-import { deleteDictionary } from '../../services/dictionaryService';
+import { deleteDictionary } from '../../services/DictionaryService';
 
 import Icon from '../ui/icon/Icon';
 
 import { OptionsMenuProps } from './OptionsMenuProps';
 import './OptionsMenuStyles.scss';
 
-const OptionsMenu: React.FC<OptionsMenuProps> = ({ urlCall, onEdit, id }) => {
+const OptionsMenu: React.FC<OptionsMenuProps> = ({
+  urlCall,
+  onEdit,
+  id,
+  dictionaryData,
+  termData,
+}) => {
   const [isOpen, setIsOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
   const { theme } = useTheme();
@@ -18,6 +24,22 @@ const OptionsMenu: React.FC<OptionsMenuProps> = ({ urlCall, onEdit, id }) => {
   const handleEditClick = () => {
     setIsOpen(false);
     onEdit(id || '');
+  };
+
+  const handleCopyClick = () => {
+    let textToCopy = '';
+
+    if (urlCall.startsWith('/dictionary/') && dictionaryData) {
+      textToCopy = `${dictionaryData.title}: ${dictionaryData.description}`;
+    } else if (urlCall.startsWith('/term/') && termData) {
+      textToCopy = `${termData.term} - ${termData.definition}, ${termData.term_eng} - ${termData.definition_eng}`;
+    }
+
+    if (textToCopy) {
+      navigator.clipboard.writeText(textToCopy);
+    }
+
+    setIsOpen(false);
   };
 
   const handleDeleteClick = async () => {
@@ -66,7 +88,7 @@ const OptionsMenu: React.FC<OptionsMenuProps> = ({ urlCall, onEdit, id }) => {
             Редагування
           </li>
 
-          <li className='menu-item'>
+          <li className='menu-item' onClick={handleCopyClick}>
             <Icon name='copy' size={16} className='dropdown-menu-icon icon' />
             Скопіювати
           </li>
